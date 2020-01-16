@@ -3,11 +3,15 @@ package BigW;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -65,15 +69,14 @@ public class Automation extends ExcelIntegration{
 		r.keyRelease(KeyEvent.VK_DOWN);
 		r.keyPress(KeyEvent.VK_ENTER);
 		r.keyRelease(KeyEvent.VK_ENTER);
-		
-				
 		driver.findElement(By.xpath("(//a[@href='/cart'])[1]")).click();
-	
-	
-	
-	
-	
-	
+//ScrollDown
+		js.executeScript("window.scrollTo(0,document.body.scrollHight)");
+//TakesScreenshot
+		TakesScreenshot tk = (TakesScreenshot)driver;
+		File temp = tk.getScreenshotAs(OutputType.FILE);
+		File desc = new File("C:\\Users\\admin\\BigW\\ProjectBigW\\ProjectBigW\\Screenshot\\BigW.png");
+		FileUtils.copyFile(temp, desc);
 	
 	}
 
