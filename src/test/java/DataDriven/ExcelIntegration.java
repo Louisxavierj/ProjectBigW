@@ -16,7 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelIntegration {
 	public static String getData(int rowNo, int cellNo) throws IOException {
 		String v= null;
-		File loc = new File("C:\\Users\\admin\\BigW\\ProjectBigW\\ProjectBigW\\DataDriven\\Read.xlsx");
+		File loc = new File("C:\\Users\\admin\\BigW\\ProjectBigW\\ProjectBigW\\DataDriven\\BigW.xlsx");
 		FileInputStream stream = new FileInputStream(loc);
 		Workbook w= new XSSFWorkbook(stream);
 		Sheet s = w.getSheet("Sheet1");
